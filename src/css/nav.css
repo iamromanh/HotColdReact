@@ -1,0 +1,11 @@
+.nav-text {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+nav {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+}
