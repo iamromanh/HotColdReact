@@ -11,9 +11,11 @@ class HotorCold extends Component {
       this.state = {
         guessesTaken: [],
     }
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.stateLength = this.stateLength.bind(this);
+    console.log(this.state.guessesTaken)
+
   }
 
   handleChange(event) {
@@ -28,12 +30,21 @@ class HotorCold extends Component {
     event.preventDefault();
   }
 
+  stateLength() {
+    const stateCount = this.state.guessesTaken
+    const numberOfGuesses = stateCount.map((guess) => {
+      return numberOfGuesses.length();
+    })
+    console.log(numberOfGuesses)
+    console.log(stateCount)
+  }
+
   render() {
     return (
       <div className='HotorCold'>
         <Nav />
         <h1 className='HotorColdTittle'>HOT or COLD</h1>
-        <GuessBox onSubmit={this.handleSubmit} value={this.state.guessesTaken} onChange={this.handleChange}/>
+        <GuessBox onSubmit={this.handleSubmit} value={this.state.guessesTaken} onChange={this.handleChange} stateLength={this.stateLength}/>
       </div>
     );
   }
