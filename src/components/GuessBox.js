@@ -9,10 +9,10 @@ export default function GuessBox(props) {
     <div>
       <section className='game'>
         <h2 id='user-feedback'>Make your Guess!</h2>
-        <form>
+        <form onSubmit={props.onSubmit}>
         <div className="field">
           <p className="control">
-            <input className="input is-medium" id='userGuess' type="text" name='userGuess' placeholder="Enter your Guess" />
+            <input className="input is-medium" id='userGuess' type="text" name='userGuess' placeholder="Enter your Guess" onChange={props.onChange} value={props.value} />
           </p>
         </div>
         <div className="field">
