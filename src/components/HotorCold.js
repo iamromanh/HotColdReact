@@ -24,6 +24,8 @@ class HotorCold extends Component {
 
   handleSubmit(event) {
     console.log(`Submitted your guess successfully ${this.state.guessesTaken}`)
+    alert(`Submitted your guess successfully ${this.state.guessesTaken}`)
+    event.preventDefault();
   }
 
   render() {
@@ -31,7 +33,7 @@ class HotorCold extends Component {
       <div className='HotorCold'>
         <Nav />
         <h1 className='HotorColdTittle'>HOT or COLD</h1>
-        <GuessBox />
+        <GuessBox onSubmit={this.handleSubmit} value={this.state.guessesTaken} onChange={this.handleChange}/>
       </div>
     );
   }
