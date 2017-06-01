@@ -19,9 +19,11 @@ class HotorCold extends Component {
   }
 
   handleChange(event) {
+    const value = event.target.value;
     this.setState({
-      guessesTaken: event.target.value
-    });
+      guessesTaken: [...this.state.guessesTaken, value]
+    })
+    console.log(this.state.guessesTaken)
   }
 
   handleSubmit(event) {
@@ -44,7 +46,11 @@ class HotorCold extends Component {
       <div className='HotorCold'>
         <Nav />
         <h1 className='HotorColdTittle'>HOT or COLD</h1>
-        <GuessBox onSubmit={this.handleSubmit} value={this.state.guessesTaken} onChange={this.handleChange} stateLength={this.stateLength}/>
+        <GuessBox
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          value={this.state.guessesTaken}
+          stateLength={this.stateLength}/>
       </div>
     );
   }

@@ -12,12 +12,23 @@ export default function GuessBox(props) {
         <form onSubmit={props.onSubmit}>
         <div className="field">
           <p className="control">
-            <input className="input is-medium" id='userGuess' type="text" name='userGuess' placeholder="Enter your Guess" onChange={props.onChange} value={props.value} />
+            <input
+              placeholder="Enter your Guess"
+              className="input is-medium"
+              onChange={props.onChange}
+              value={props.value}
+              />
           </p>
         </div>
         <div className="field">
           <p className="control">
-            <input className='button' type="submit" id='guessButton' name='submit' value='Guess' />
+            <input
+              className='button'
+              type="submit"
+              id='guessButton'
+              name='submit'
+              value='Guess'
+              />
           </p>
         </div>
         </form>
