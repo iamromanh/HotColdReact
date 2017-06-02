@@ -35,6 +35,8 @@ export default function GuessBox(props) {
 
         <p className='guessCount'>Guess #<span id='count'>{props.stateLength}</span>!</p>
         <ul id='guestList' className='guessBox'>
+          {props.historyOfGuesses}
+          {props.renderGuesses}
         </ul>
       </section>
     </div>
