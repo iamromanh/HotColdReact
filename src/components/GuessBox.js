@@ -33,7 +33,7 @@ export default function GuessBox(props) {
         </div>
         </form>
 
-        <p className='guessCount'>Guess #<span id='count'>{props.stateLength}{props.value}</span>!</p>
+        <p className='guessCount'>Guess #<span id='count'>{props.stateLength}</span>!</p>
         <ul id='guestList' className='guessBox'>
         </ul>
       </section>
