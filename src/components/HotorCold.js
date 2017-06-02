@@ -10,30 +10,46 @@ class HotorCold extends Component {
     super(props);
       this.state = {
         guessesTaken: [],
+        currentGuess: ''
     }
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
+    const value = event.target.value;
     this.setState({
-      guessesTaken: event.target.value
-    });
+      currentGuess: value,
+    })
+    console.log(value);
   }
 
   handleSubmit(event) {
-    console.log(`Submitted your guess successfully ${this.state.guessesTaken}`)
-    alert(`Submitted your guess successfully ${this.state.guessesTaken}`)
+    // camparison is handled here.
+    const value = this.state.currentGuess;
+    console.log(`Submitted your guess successfully ${this.state.currentGuess}`);
+    alert(`Submitted your guess successfully ${this.state.currentGuess}`);
+    this.setState({
+      guessesTaken: [...this.state.guessesTaken, value],
+      currentGuess: ''
+    })
     event.preventDefault();
   }
 
   render() {
+    console.log(this.state.guessesTaken)
     return (
       <div className='HotorCold'>
-        <Nav />
+        <Nav
+          newGame={this.startNewGame}
+        />
         <h1 className='HotorColdTittle'>HOT or COLD</h1>
-        <GuessBox onSubmit={this.handleSubmit} value={this.state.guessesTaken} onChange={this.handleChange}/>
+        <GuessBox
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          value={this.state.currentGuess}
+          stateLength={this.state.guessesTaken.length}
+        />
       </div>
     );
   }
