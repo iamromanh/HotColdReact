@@ -33,8 +33,11 @@ export default function GuessBox(props) {
         </div>
         </form>
 
-        <p className='guessCount'>Guess #<span id='count'>{props.stateLength}</span>!</p>
+        <p className='guessCount'>Guess #<span id='count'>{props.historyOfGuesses.length}</span>!</p>
         <ul id='guestList' className='guessBox'>
+          {props.historyOfGuesses.map((item, index) => {
+            return <li key={index}>{item}</li>
+          })}
         </ul>
       </section>
     </div>
