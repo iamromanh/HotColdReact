@@ -38,11 +38,14 @@ class HotorCold extends Component {
     const guesses = this.state.guessesTaken.map(function(guess) {
       return <li>{guess}</li>
     })
-
+    return guesses;
     console.log('Here are the list of guesses you took so far ====>', guesses)
   }
 
   render() {
+    {/*
+      renderGuesses={this.renderGuesses()}
+      stateLength={this.state.guessesTaken.length}*/}
     console.log(this.state.guessesTaken)
     return (
       <div className='HotorCold'>
@@ -54,9 +57,7 @@ class HotorCold extends Component {
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
           value={this.state.currentGuess}
-          stateLength={this.state.guessesTaken.length}
           historyOfGuesses={this.state.guessesTaken}
-          renderGuesses={this.renderGuesses}
         />
       </div>
     );
