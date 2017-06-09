@@ -12,10 +12,11 @@ class HotorCold extends Component {
         guessesTaken: [],
         currentGuess: '',
         randomNumberGenerator: Math.floor(Math.random() * 100),
-        response: 'Make your Guess!'
+        response: 'Guess a number between 1-100'
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.newGame = this.newGame.bind(this);
   }
 
   handleChange(event) {
@@ -60,12 +61,18 @@ class HotorCold extends Component {
       return;
     }
 
+    if (guess > 100) {
+      alert('Sorry please choose a number less that 100')
+      this.setState({
+        currentGuess: ''
+      })
+    }
+
     const difference = Math.abs(guess - winningNumber);
 
     let response;
     if (guess === winningNumber) {
       response = youWin;
-      alert('you win mother fucker');
     } else if (difference <= 10){
       response = effinHot;
     } else if (difference <= 25) {
@@ -96,13 +103,21 @@ class HotorCold extends Component {
     return repeatedArray.length > 0;
   }
 
-  render() {
-    console.log('historyGuesses ===>', this.state.guessesTaken)
+  newGame() {
+    console.log('I was clicked and I am ready to start a new game for you')
+      this.setState ({
+        guessesTaken: [],
+        currentGuess: '',
+        randomNumberGenerator: Math.floor(Math.random() * 100),
+        response: 'Guess a number between 1-100'
+        })
+    }
 
+  render() {
     return (
       <div className='HotorCold'>
         <Nav
-          newGame={this.startNewGame}
+          newGame={this.newGame}
         />
         <h1 className='HotorColdTittle'>HOT or COLD</h1>
         <GuessBox
@@ -111,7 +126,6 @@ class HotorCold extends Component {
           value={this.state.currentGuess}
           historyOfGuesses={this.state.guessesTaken}
           response={this.state.response}
-          newGame={this.newGame}
         />
       </div>
     );
