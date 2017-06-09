@@ -8,23 +8,23 @@ export default function GuessBox(props) {
   return (
     <div>
       <section className='game'>
-        <h2 id='user-feedback'>Make your Guess!</h2>
+        <h2 id='user-feedback'>{props.response}</h2>
         <form onSubmit={props.onSubmit}>
-        <div className="field">
-          <p className="control">
+        <div className='field'>
+          <p className='control'>
             <input
-              placeholder="Enter your Guess"
-              className="input is-medium"
+              placeholder='Enter your Guess'
+              className='input is-medium'
               onChange={props.onChange}
               value={props.value}
               />
           </p>
         </div>
-        <div className="field">
-          <p className="control">
+        <div className='field'>
+          <p className='control'>
             <input
               className='button'
-              type="submit"
+              type='submit'
               id='guessButton'
               name='submit'
               value='Guess'
