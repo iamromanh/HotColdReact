@@ -34,10 +34,8 @@ class HotorCold extends Component {
     // Convert value from a string to an intenger
     const guess =  parseInt(value, 10);
 
-    // console.log('Guess intenger ==>', guess)
-
     // Winning responses
-    const youWin = 'You win!';
+    const youWin = 'You Won. Click new game to play again!';
     const effinHot = 'Your effin hot!';
     const kindOfHot = 'Your kind of hot!';
     const kidnOfWarm =  'Kid of warm!';
@@ -62,12 +60,25 @@ class HotorCold extends Component {
       return;
     }
 
-    // This needs to be worked on some more
+    const difference = Math.abs(guess - winningNumber);
+
     let response;
     if (guess === winningNumber) {
       response = youWin;
       alert('you win mother fucker');
-    } else {
+    } else if (difference <= 10){
+      response = effinHot;
+    } else if (difference <= 25) {
+      response = kindOfHot;
+    } else if (difference <= 35) {
+      response = kidnOfWarm;
+    } else if (difference <= 40) {
+      response = coolingOff;
+    } else if (difference <= 50) {
+      response =  kindOfCold;
+    } else if (difference <= 65) {
+      response = cold;
+    } else if (difference <= 80) {
       response = iceIceBaby;
     }
 
@@ -79,20 +90,14 @@ class HotorCold extends Component {
   }
 
   isRepeated(guess, historyGuesses) {
-    console.log('historyGuesses ===>', historyGuesses)
     let repeatedArray = historyGuesses.filter((item, index) => {
-      console.log('repeatedArray', repeatedArray)
       return item === guess;
     });
-    console.log('repeatedArray ==>', repeatedArray)
-    console.log('repeatedArray.length', repeatedArray.length)
-    console.log('Guess==>', guess);
-
     return repeatedArray.length > 0;
   }
 
   render() {
-    console.log('History of Guesses ==>', this.state.guessesTaken);
+    console.log('historyGuesses ===>', this.state.guessesTaken)
 
     return (
       <div className='HotorCold'>
@@ -106,6 +111,7 @@ class HotorCold extends Component {
           value={this.state.currentGuess}
           historyOfGuesses={this.state.guessesTaken}
           response={this.state.response}
+          newGame={this.newGame}
         />
       </div>
     );
