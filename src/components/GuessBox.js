@@ -13,7 +13,7 @@ export default function GuessBox(props) {
         <div className='field'>
           <p className='control'>
             <input
-              placeholder='Enter your Guess'
+              placeholder='Guess a number'
               className='input is-medium'
               onChange={props.onChange}
               value={props.value}
