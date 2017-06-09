@@ -2,7 +2,7 @@
 I - A number data type
 P - Conditional if else statements
 O - String of user responses
-
+ 
 #The known
  #Whats available to us
 - an array of user guesses that hold a key value
