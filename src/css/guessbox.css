@@ -1,0 +1,80 @@
+.game {
+  background: #394264;
+  border-radius: 4px;
+  height: 380px;
+  margin: 0 auto;
+  width: 380px;
+}
+
+
+h2 {
+  background-color: #cc324b;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: #fff;
+  display: block;
+  font-size: 1.5em;
+  font-weight: 400;
+  line-height: 1em;
+  margin: 0 auto;
+  padding: 1em 0.4em;
+}
+
+.input {
+  border: solid 1px #1f253d;
+  background-color: #50597b;
+  display: block;
+  margin: 0.8em auto 0;
+  text-align: center;
+  width: 300px;
+  color: white;
+}
+
+.button {
+  background: #1F253D;
+  border: solid 1px #1f253d;
+  color: #95a5a6;
+  font-size: 1.5em;
+  width: 300px;
+  height: 50px;
+  margin-left: 1.6em;
+  margin-top: 0.6em;
+}
+
+.button:hover {
+  background: #CC324B;
+  border: none;
+  color: white;
+  transition: background 1s ease-in-out
+}
+
+.guessCount {
+  color: black;
+  margin-top: 0.5em;
+  font-size: 1.8em;
+}
+
+#count {
+  color: #f39c12;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+ul.guessBox {
+  border-radius: 5px;
+  height: 83px;
+  margin: 10px auto 0;
+  background: #11a8ab;
+  padding: 0.5em;
+  display: block;
+  line-height: 2em;
+}
+
+ul.guessBox li {
+  display: inline;
+  background-color: #1a4e95;
+  padding: 0.3em;
+  width: 95%;
+  margin: 0.2em;
+  color: #fff;
+}
