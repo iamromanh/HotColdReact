@@ -11,7 +11,7 @@ export default function Nav(props) {
       <nav className='nav'>
         <div className='container'>
           <div className='nav-right'>
-            <a className="nav-item" onClick={props.newGame}><span className='nav-text'>+ New Game</span></a>
+            <a className="nav-item newGame" onClick={props.newGame}><span className='nav-text'>+ New Game</span></a>
           </div>
         </div>
       </nav>
