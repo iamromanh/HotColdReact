@@ -10,13 +10,10 @@ describe('<Nav />', () => {
 
   it('Start a new game when clicked', () => {
     const callback = jest.fn();
-    const wrapper = shallow(<Nav onClick={callback} />);
-    // console.log('This is the wrapper ====>', wrapper)
+    const wrapper = shallow(<Nav newGame={callback} />);
     const link = wrapper.find('.newGame');
-    // console.log('this is the link =====>', link)
-    link.simulate('click', {
-      preventDeafult() {}
-    });
+    // console.log('link ===>', link)
+    link.simulate('click');
     expect(callback).toHaveBeenCalled();
   });
 })

@@ -49,19 +49,28 @@ describe('<GuessBox />', () => {
       value={value}
       onChange={callback}
       />);
-      console.log(wrapper.find('.input').get(0).value)
+      // console.log(wrapper.find('.input').get(0).value)
     expect(wrapper.find('.input').get(0).value).toEqual(value)
   })
 
-  it('it should render a number on callback of props.historyOfGuesses', () => {
-    const value = 10;
+  it('it should render the length of props.historyOfGuesses', () => {
+    const guesses = [10,14,13];
     const wrapper = mount(<GuessBox
-      historyOfGuesses={[value]}
-      />)
-      console.log(wrapper.find('#count').props())
-      // expect(toEqual(value));
+      historyOfGuesses={guesses}
+      />);
+      // console.log(wrapper.find('#count').props().children);
+      expect(wrapper.find('#count').text()).toEqual(`${guesses.length}`);
   })
 
 
-  it ('should expect and render 3 li')
+  it ('should render 3 list item with the right value when props.historyOfGuesses is called', () => {
+    const guesses = [10,15,18];
+    const wrapper = mount(<GuessBox historyOfGuesses={guesses} />)
+    const listItems = wrapper.find('.guessBox li')
+    //console.log('listItems =====>', listItems)
+    expect(listItems.nodes).toHaveLength(guesses.length);
+    listItems.forEach((node, index) => {
+      expect(node.text()).toEqual(`${guesses[index]}`); //"" + guesses[index]
+    })
+  })
 })
