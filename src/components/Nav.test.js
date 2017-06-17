@@ -12,7 +12,6 @@ describe('<Nav />', () => {
     const callback = jest.fn();
     const wrapper = shallow(<Nav newGame={callback} />);
     const link = wrapper.find('.newGame');
-    // console.log('link ===>', link)
     link.simulate('click');
     expect(callback).toHaveBeenCalled();
   });
