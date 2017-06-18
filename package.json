@@ -22,5 +22,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://hot-cold-react.netlify.com/static/js/main.9d4ba011.js"
+  "homepage": "https://iamromanh.github.io/HotColdReact/"
 }
