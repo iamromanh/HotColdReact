@@ -1,7 +1,5 @@
 import React from 'react';
 
-import HotorCold from './HotorCold';
-
 import '../css/guessbox.css';
 
 export default function GuessBox(props) {
