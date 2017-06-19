@@ -22,5 +22,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://iamromanh.github.io/HotColdReact/"
+  "homepage": "/"
 }
