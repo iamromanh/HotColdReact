@@ -1,7 +1,5 @@
 import React from 'react';
 
-import HotorCold from './HotorCold';
-
 import 'bulma/css/bulma.css'
 import '../css/nav.css';
 
