@@ -16,9 +16,9 @@ export const userFeedback = feedback => ({
 });
 
 // enterNumber <== where the user enters a number
-export const ENTER_NUMBER = 'ENTER_NUMBER';
-export const enterNumber = number => ({
-  type: ENTER_NUMBER,
+export const ADD_NUMBER = 'ADD_NUMBER';
+export const addNumber = number => ({
+  type: ADD_NUMBER,
   number
 });
 
