@@ -8,13 +8,6 @@ export const newGame = game => ({
   game
 });
 
-// userFeedback <== the feedback printed to the scrren for the user i.e 'Hot, cold, ice ice baby'
-export const USER_FEEDBACK = 'USER_FEEDBACK';
-export const userFeedback = feedback => ({
-  type: USER_FEEDBACK,
-  feedback
-});
-
 // enterNumber <== where the user enters a number
 export const ADD_NUMBER = 'ADD_NUMBER';
 export const addNumber = number => ({
@@ -27,18 +20,4 @@ export const GUESS_BUTTON = 'GUESS_BUTTON';
 export const guessButton = button => ({
   type: GUESS_BUTTON,
   button
-});
-
-// guessCount <== the number of guesses taken by the user
-export const GUESS_COUNT = 'GUESS_COUNT';
-export const guessCount = count => ({
-  type: GUESS_COUNT,
-  count
-});
-
-// historyOfGuesses <== the history of guesses from a user
-export const HISTORY_GUESSES = 'HISTORY_GUESSES';
-export const historyGuesses = guesses => ({
-  type: HISTORY_GUESSES,
-  guesses
 });
