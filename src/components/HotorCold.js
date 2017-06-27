@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { newGame, userInput, guessButton } from '../actions/index';
+
 import 'bulma/css/bulma.css'
 import '../css/hotorcold.css';
 
 import GuessBox from './GuessBox';
 import Nav from './Nav'
 
-class HotorCold extends Component {
+export class HotorCold extends Component {
+  // ** State is not needed in the component any more its being hanlded by the Redux Store via dispatch **
   constructor(props) {
     super(props);
-      this.state = {
-        guessesTaken: [],
-        currentGuess: '',
-        randomNumberGenerator: Math.floor(Math.random() * 100),
-        response: 'Guess a number between 1-100'
-    }
+  //     this.state = {
+  //       guessesTaken: [],
+  //       currentGuess: '',
+  //       randomNumberGenerator: Math.floor(Math.random() * 100),
+  //       response: 'Guess a number between 1-100'
+  //   }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.newGame = this.newGame.bind(this);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+     this.callNewGame = this.callNewGame.bind(this);
   }
 
   handleChange(event) {
+    console.log('handleChange===> Number changed')
     const value = event.target.value;
-    this.setState({
-      currentGuess: value,
-    })
+    this.props.dispatch(userInput(value));
+    // this.setState({
+    //   currentGuess: value,
+    // })
   }
 
   handleSubmit(event) {
@@ -47,9 +54,10 @@ class HotorCold extends Component {
 
     if (isNaN(guess)) {
       alert('Sorry this is not a number please enter an number');
-      this.setState({
-        currentGuess: ''
-      })
+      //this.setState({
+      //  currentGuess: ''
+      //})
+      this.props.dispatch(userInput(''))
       return;
     }
 
@@ -103,33 +111,49 @@ class HotorCold extends Component {
     return repeatedArray.length > 0;
   }
 
-  newGame() {
+  callNewGame() {
     console.log('I was clicked and I am ready to start a new game for you')
-      this.setState ({
-        guessesTaken: [],
-        currentGuess: '',
-        randomNumberGenerator: Math.floor(Math.random() * 100),
-        response: 'Guess a number between 1-100'
-        })
+      this.props.dispatch(newGame());
+      // this.setState ({
+      //   guessesTaken: [],
+      //   currentGuess: '',
+      //   randomNumberGenerator: Math.floor(Math.random() * 100),
+      //   response: 'Guess a number between 1-100'
+      //   })
     }
 
   render() {
+    console.log(this.props);
     return (
       <div className='HotorCold'>
         <Nav
-          newGame={this.newGame}
+          newGame={this.callNewGame}
         />
         <h1 className='HotorColdTittle'>HOT or COLD</h1>
         <GuessBox
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
-          value={this.state.currentGuess}
-          historyOfGuesses={this.state.guessesTaken}
-          response={this.state.response}
+          value={this.props.currentGuess}
+          historyOfGuesses={this.props.guessesTaken}
+          response={this.props.response}
         />
       </div>
     );
   }
 }
 
-export default HotorCold;
+HotorCold.defaultProps = {
+  guessesTaken: [],
+  currentGuess: '',
+  randomNumberGenerator: 0,
+  response: ''
+}
+
+const mapStateToProps = state => ({
+  guessesTaken: state.guessesTaken,
+  currentGuess: state.currentGuess,
+  randomNumberGenerator: state.randomNumberGenerator,
+  response: state.response
+})
+
+export default connect(mapStateToProps)(HotorCold);

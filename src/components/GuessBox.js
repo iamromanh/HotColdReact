@@ -7,7 +7,7 @@ export default function GuessBox(props) {
     <div>
       <section className='game'>
         <h2 id='user-feedback'>{props.response}</h2>
-        <form onSubmit={props.onSubmit}>
+        <form onSubmit={e => e.preventDefault()}>
           <div className='field'>
             <p className='control'>
               <input
