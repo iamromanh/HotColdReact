@@ -10,31 +10,21 @@ import GuessBox from './GuessBox';
 import Nav from './Nav'
 
 export class HotorCold extends Component {
-  // ** State is not needed in the component any more its being hanlded by the Redux Store via dispatch **
   constructor(props) {
     super(props);
-  //     this.state = {
-  //       guessesTaken: [],
-  //       currentGuess: '',
-  //       randomNumberGenerator: Math.floor(Math.random() * 100),
-  //       response: 'Guess a number between 1-100'
-  //   }
     this.handleChange = this.handleChange.bind(this);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-     this.callNewGame = this.callNewGame.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.callNewGame = this.callNewGame.bind(this);
   }
 
   handleChange(event) {
-    console.log('handleChange===> Number changed')
     const value = event.target.value;
+    console.log('handleChange===> Number changed', value)
     this.props.dispatch(userInput(value));
-    // this.setState({
-    //   currentGuess: value,
-    // })
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     const value = this.state.currentGuess;
     const winningNumber = this.state.randomNumberGenerator;
@@ -54,28 +44,23 @@ export class HotorCold extends Component {
 
     if (isNaN(guess)) {
       alert('Sorry this is not a number please enter an number');
-      //this.setState({
-      //  currentGuess: ''
-      //})
       this.props.dispatch(userInput(''))
       return;
     }
 
     if (this.isRepeated(guess, historyGuesses)) {
       alert('sorry you already entered this number');
-      this.setState({
-        currentGuess: ''
-      })
+      this.props.dispatch(userInput(''))
       return;
     }
 
     if (guess > 100) {
       alert('Sorry please choose a number less that 100')
-      this.setState({
-        currentGuess: ''
-      })
+      this.props.dispatch(userInput(''))
     }
 
+PICK UP FROM HERE... ROLL THROUHG THIS HELPER FUNCTION AND LETS TRY TO AT LEAST
+CONSOLE>LOG A BUTTON SUMBIT WITH THE ACTIONS AND VALUE PRINTED TO THE CONSOLE
     const difference = Math.abs(guess - winningNumber);
 
     let response;
@@ -114,12 +99,6 @@ export class HotorCold extends Component {
   callNewGame() {
     console.log('I was clicked and I am ready to start a new game for you')
       this.props.dispatch(newGame());
-      // this.setState ({
-      //   guessesTaken: [],
-      //   currentGuess: '',
-      //   randomNumberGenerator: Math.floor(Math.random() * 100),
-      //   response: 'Guess a number between 1-100'
-      //   })
     }
 
   render() {

@@ -1,4 +1,4 @@
-import { NEW_GAME, ADD_NUMBER, GUESS_BUTTON } from '../actions/index';
+import { NEW_GAME, ADD_NUMBER, SUBMIT_RESPONSE } from '../actions/index';
 
 const initialGameState = {
   guessesTaken: [],
@@ -9,8 +9,6 @@ const initialGameState = {
 
 export const gameReducer = (state=initialGameState, action) => {
   switch (action.type) {
-    // what do I want to do in here?
-      //I want to take each property and resset back to initial state
     case 'NEW_GAME':
       return Object.assign({}, state, {
         guessesTaken: [],
@@ -23,6 +21,9 @@ export const gameReducer = (state=initialGameState, action) => {
       return Object.assign({}, state, {
         currentGuess: action.number
       })
+      break;
+    case 'SUBMIT_RESPONSE':
+      return Object.assign()
     default:
     return state
   }

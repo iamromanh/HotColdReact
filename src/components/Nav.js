@@ -3,7 +3,6 @@ import React from 'react';
 import 'bulma/css/bulma.css'
 import '../css/nav.css';
 
-// originally this was a dumb component
 export default function Nav(props) {
   return (
     <div className='container'>
