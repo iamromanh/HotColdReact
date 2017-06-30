@@ -10,7 +10,17 @@ export const userInput = number => ({
 });
 
 export const SUBMIT_RESPONSE = 'SUBMIT_RESPONSE';
-export const guessButton = button => ({
+export const submitResponse = (guess, response) => ({
   type: SUBMIT_RESPONSE,
-  button
+  guess,
+  response
 });
+
+// export const SUBMIT_RESPONSE = 'SUBMIT_RESPONSE';
+// export const submitResponse = (guessesTaken, currentGuess, response) => ({
+//   type: SUBMIT_RESPONSE,
+//   guessesTaken,
+//   currentGuess,
+//   response,
+//
+// });

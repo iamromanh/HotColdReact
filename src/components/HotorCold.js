@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newGame, userInput, guessButton } from '../actions/index';
+import { newGame, userInput, submitResponse } from '../actions/index';
 
 import 'bulma/css/bulma.css'
 import '../css/hotorcold.css';
@@ -24,13 +24,21 @@ export class HotorCold extends Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault();
+    console.log('event button was submitted')
+     event.preventDefault();
 
-    const value = this.state.currentGuess;
-    const winningNumber = this.state.randomNumberGenerator;
-    const historyGuesses = this.state.guessesTaken;
+    const value = this.props.currentGuess;
+    const winningNumber = this.props.randomNumberGenerator;
+    const historyGuesses = this.props.guessesTaken;
+
+    console.log('value', value);
+    console.log('winningNumber', winningNumber);
+    console.log('historyGuesses', historyGuesses);
+
     // Convert value from a string to an intenger
     const guess =  parseInt(value, 10);
+
+    console.log('guess should be converted to an intenger ====> ', guess);
 
     // Winning responses
     const youWin = 'You Won. Click new game to play again!';
@@ -59,8 +67,6 @@ export class HotorCold extends Component {
       this.props.dispatch(userInput(''))
     }
 
-PICK UP FROM HERE... ROLL THROUHG THIS HELPER FUNCTION AND LETS TRY TO AT LEAST
-CONSOLE>LOG A BUTTON SUMBIT WITH THE ACTIONS AND VALUE PRINTED TO THE CONSOLE
     const difference = Math.abs(guess - winningNumber);
 
     let response;
@@ -81,12 +87,7 @@ CONSOLE>LOG A BUTTON SUMBIT WITH THE ACTIONS AND VALUE PRINTED TO THE CONSOLE
     } else if (difference <= 80) {
       response = iceIceBaby;
     }
-
-    this.setState({
-      guessesTaken: [...historyGuesses, guess],
-      currentGuess: '',
-      response: response
-    })
+    this.props.dispatch(submitResponse(guess, response));
   }
 
   isRepeated(guess, historyGuesses) {

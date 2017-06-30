@@ -1,4 +1,4 @@
-import { NEW_GAME, ADD_NUMBER, SUBMIT_RESPONSE } from '../actions/index';
+import { NEW_GAME, USER_INPUT, SUBMIT_RESPONSE } from '../actions/index';
 
 const initialGameState = {
   guessesTaken: [],
@@ -23,7 +23,11 @@ export const gameReducer = (state=initialGameState, action) => {
       })
       break;
     case 'SUBMIT_RESPONSE':
-      return Object.assign()
+      return Object.assign({}, state, {
+        guessesTaken: [...state.guessesTaken, action.guess],
+        currentGuess: '',
+        response: action.response
+      })
     default:
     return state
   }
