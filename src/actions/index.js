@@ -1,23 +1,26 @@
-// List the kind of actions Hot or Cold app needs
-
-// newGame <== the new game button to start a new game
-
 export const NEW_GAME  = 'NEW_GAME';
-export const newGame = game => ({
-  type: NEW_GAME,
-  game
+export const newGame = () => ({
+  type: NEW_GAME
 });
 
-// enterNumber <== where the user enters a number
-export const ADD_NUMBER = 'ADD_NUMBER';
-export const addNumber = number => ({
-  type: ADD_NUMBER,
+export const USER_INPUT = 'USER_INPUT';
+export const userInput = number => ({
+  type: USER_INPUT,
   number
 });
 
-// guessButton <== the button click *not sure if this is considered an action?*
-export const GUESS_BUTTON = 'GUESS_BUTTON';
-export const guessButton = button => ({
-  type: GUESS_BUTTON,
-  button
+export const SUBMIT_RESPONSE = 'SUBMIT_RESPONSE';
+export const submitResponse = (guess, response) => ({
+  type: SUBMIT_RESPONSE,
+  guess,
+  response
 });
+
+// export const SUBMIT_RESPONSE = 'SUBMIT_RESPONSE';
+// export const submitResponse = (guessesTaken, currentGuess, response) => ({
+//   type: SUBMIT_RESPONSE,
+//   guessesTaken,
+//   currentGuess,
+//   response,
+//
+// });
