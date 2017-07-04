@@ -38,8 +38,14 @@ describe('submitResponse', () => {
       currentGuess: 1,
       response: 'Another Response'
     };
-    gameState = gameReducer(gameState, submitResponse(2, 'Very Cold'));
-    expect(gameState.currentGuess).toEqual(2);
+
+    let newGuess = 5;
+    let guessesTakenLength = gameState.guessesTaken.length;
+
+    gameState = gameReducer(gameState, submitResponse(newGuess, 'Very Cold'));
+    expect(gameState.currentGuess).toEqual('');
+    expect(gameState.guessesTaken).toHaveLength(guessesTakenLength + 1);
+    expect(gameState.guessesTaken[3]).toEqual(newGuess);
     expect(gameState.response).toMatch('Very Cold');
   })
 })

@@ -25,7 +25,7 @@ export const gameReducer = (state=initialGameState, action) => {
     case 'SUBMIT_RESPONSE':
       return Object.assign({}, state, {
         guessesTaken: [...state.guessesTaken, action.guess],
-        currentGuess: action.guess,
+        currentGuess: '',
         response: action.response
       })
     default:
