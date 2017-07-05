@@ -15,12 +15,3 @@ export const submitResponse = (guess, response) => ({
   guess,
   response
 });
-
-// export const SUBMIT_RESPONSE = 'SUBMIT_RESPONSE';
-// export const submitResponse = (guessesTaken, currentGuess, response) => ({
-//   type: SUBMIT_RESPONSE,
-//   guessesTaken,
-//   currentGuess,
-//   response,
-//
-// });
