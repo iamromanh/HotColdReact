@@ -16,12 +16,12 @@ export const gameReducer = (state=initialGameState, action) => {
         randomNumberGenerator: Math.floor(Math.random() * 100),
         response: 'Guess a number between 1 - 100'
       })
-      break;
+      // break;
     case 'USER_INPUT':
       return Object.assign({}, state, {
         currentGuess: action.number
       })
-      break;
+      // break;
     case 'SUBMIT_RESPONSE':
       return Object.assign({}, state, {
         guessesTaken: [...state.guessesTaken, action.guess],
