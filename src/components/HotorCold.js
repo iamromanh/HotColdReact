@@ -19,26 +19,20 @@ export class HotorCold extends Component {
 
   handleChange(event) {
     const value = event.target.value;
-    console.log('handleChange===> Number changed', value)
     this.props.dispatch(userInput(value));
   }
 
   handleSubmit(event) {
-    console.log('event button was submitted')
      event.preventDefault();
 
     const value = this.props.currentGuess;
     const winningNumber = this.props.randomNumberGenerator;
     const historyGuesses = this.props.guessesTaken;
 
-    console.log('value', value);
     console.log('winningNumber', winningNumber);
-    console.log('historyGuesses', historyGuesses);
 
     // Convert value from a string to an intenger
     const guess =  parseInt(value, 10);
-
-    console.log('guess should be converted to an intenger ====> ', guess);
 
     // Winning responses
     const youWin = 'You Won. Click new game to play again!';
