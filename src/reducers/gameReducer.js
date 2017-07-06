@@ -1,4 +1,4 @@
-import { NEW_GAME, USER_INPUT, SUBMIT_RESPONSE } from '../actions/index';
+// import { NEW_GAME, USER_INPUT, SUBMIT_RESPONSE } from '../actions/index';
 
 const initialGameState = {
   guessesTaken: [],
