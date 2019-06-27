@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/iamromanh/HotColdReact.svg?branch=master)](https://travis-ci.org/iamromanh/HotColdReact)
 ## Hot or Cold Live Demo
-Link: https://iamromanh.github.io/HotColdReact/
+Link: https://getromanin.github.io/HotColdReact/
 or
 Link: http://hot-cold-react.netlify.com/
 

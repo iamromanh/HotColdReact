@@ -131,3 +131,33 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(HotorCold);
+
+
+
+
+
+
+
+// export class HotorCold extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       javascript: [
+//         'what is javascript',
+//         'javascript data types',
+//         'web detective: the javascript console'
+//       ],
+//       functionBasics: [
+//         'scope / closure / hoisting',
+//         'callback',
+//         'this',
+//         'IIFE statement',
+//       ],
+//       jQuery: [
+//         'DOM',
+//         'AJAX calls',
+//         'managing state'
+//       ]
+//     }
+//   }
+// }
