@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/iamromanh/HotColdReact.svg?branch=master)](https://travis-ci.org/iamromanh/HotColdReact)
+[![Build Status](https://travis-ci.org/getromanin/HotColdReact.svg?branch=master)](https://travis-ci.org/iamromanh/HotColdReact)
 ## Hot or Cold Live Demo
 Link: https://getromanin.github.io/HotColdReact/
 or
