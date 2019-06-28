@@ -14,7 +14,8 @@ before_deploy:
 
 deploy:
   provider: script
-  script: netlify deploy
+  script: netlify deploy /home/travis/build/getromanin/HotColdReact
+? deploy path (.)
   skip_cleanup: true
   on:
     branch: master
